@@ -1,6 +1,6 @@
-import { SWRConfig } from "swr";
 import GlobalStyle from "../styles";
 import useSWR from "swr";
+import Navigation from "@/components/Navigation";
 
 const fetcher = async (url) => {
   const res = await fetch(url);
@@ -35,6 +35,7 @@ export default function App({ Component, pageProps }) {
         isLoading={isLoading}
         data={data}
       />
+      <Navigation />
     </>
   );
 }
