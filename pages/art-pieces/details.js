@@ -1,6 +1,6 @@
 import Link from "next/link";
 import ArtDetails from "@/components/ArtDetail";
-import Router from "next/router";
+import { useRouter } from "next/router";
 // need to use slug and routing from NextJS hard coded 'details' page to test if component works
 
 export default function Details({ data, error, isLoading }) {
@@ -9,6 +9,10 @@ export default function Details({ data, error, isLoading }) {
   if (error) return <div>Error</div>;
   if (isLoading) return <div>Loading...</div>;
 
+  const router = useRouter();
+  const { slug } = router.query;
+
+  // based on the SLUG we will name the page as well as map over the data object (i think)
   return (
     <>
       <Link href="/art-pieces">BACK</Link>
@@ -24,3 +28,24 @@ export default function Details({ data, error, isLoading }) {
     </>
   );
 }
+
+// {
+//   "slug": "orange-red-and-green",
+//   "artist": "Steve Johnson",
+//   "name": "Orange Red and Green Abstract Painting",
+//   "imageSource": "https://example-apis.vercel.app/assets/art/orange-red-and-green.jpg",
+//   "year": "2018",
+//   "genre": "Abstract Painting",
+//   "colors": [
+//     "#0f5855",
+//     "#e6ba15",
+//     "#b42011",
+//     "#cec4c6",
+//     "#d5561f"
+//   ],
+//   "dimensions": {
+//     "height": 2432,
+//     "width": 1920,
+//     "type": "jpg"
+//   }
+// },
