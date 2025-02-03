@@ -1,0 +1,27 @@
+import Preview from "@/components/Preview";
+import { nanoid } from "nanoid";
+
+export default function artPieces({ data, error, isLoading }) {
+  if (error) return <div>Error</div>;
+  if (isLoading) return <div>Loading...</div>;
+  console.log("Data1:", data);
+
+  return (
+    <>
+      <h1>Art Gallery</h1>
+      <ul>
+        {data.map((piece) => (
+          <>
+            {/* <p>{piece.name}</p> */}
+            <Preview
+              key={nanoid()}
+              image={piece.imageSource}
+              pieceName={piece.name}
+              artist={piece.artist}
+            />
+          </>
+        ))}
+      </ul>
+    </>
+  );
+}

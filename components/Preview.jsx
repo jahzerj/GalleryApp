@@ -1,22 +1,20 @@
 import useSWR from "swr";
 import Image from "next/image";
 
-const fetcher = (url) => fetch(url).then((res) => res.json());
-
-const URL = "https://example-apis.vercel.app/api/art";
-
-export default function Preview() {
-  const { data, error, isLoading } = useSWR(URL, fetcher);
-
-  if (error) return <div>Error</div>;
-  if (isLoading) return <div>Loading...</div>;
-
-  console.log("dataimage", data[1]["imageSource"]);
+export default function Preview({
+  artist,
+  pieceName,
+  image,
+  isLoading,
+  error,
+}) {
+  //   if (error) return <div>Error</div>;
+  //   if (isLoading) return <div>Loading...</div>;
   return (
-    <>
-      <p>{data[1]["artist"]}</p>
-      <p>{data[1]["name"]}</p>
-      <Image src={data[1]["imageSource"]} height={500} width={500} alt="Alt" />
-    </>
+    <li>
+      <Image src={image} height={80} width={80} alt="Alt" />
+      <p>Artist: {artist}</p>
+      <p>Title: {pieceName}</p>
+    </li>
   );
 }
