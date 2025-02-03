@@ -21,7 +21,6 @@ export default function artPieces({ data, error, isLoading }) {
       <ul>
         {data.map((piece) => (
           <>
-            {/* <p>{piece.name}</p> */}
             <Preview
               key={nanoid()}
               image={piece.imageSource}

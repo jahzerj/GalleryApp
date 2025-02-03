@@ -22,8 +22,9 @@ const URL = "https://example-apis.vercel.app/api/art";
 
 export default function App({ Component, pageProps }) {
   const { data, error, isLoading } = useSWR(URL, fetcher);
-  if (error) return;
-  if (isLoading) return;
+
+  if (error) return <div>Error</div>;
+  if (isLoading) return <div>Loading...</div>;
 
   return (
     <>
