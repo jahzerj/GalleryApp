@@ -1,3 +1,4 @@
+import Navigation from "@/components/Navigation";
 import Preview from "@/components/Preview";
 import { nanoid } from "nanoid";
 

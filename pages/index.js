@@ -1,3 +1,4 @@
+import Navigation from "@/components/Navigation";
 import Spotlight from "@/components/Spotlight";
 
 function RandomPiece(array) {
