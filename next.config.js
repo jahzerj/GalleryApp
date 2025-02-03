@@ -1,5 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "example-apis.vercel.app",
+        port: "",
+      },
+    ],
+  },
   compiler: {
     styledComponents: true,
   },
@@ -16,3 +25,15 @@ const nextConfig = {
 };
 
 module.exports = nextConfig;
+
+// images: {
+//   remotePatterns: [
+//     {
+//       protocol: "https",
+//       hostname: "example.com",
+//       port: "",
+//       pathname: "/account123/**",
+//       search: "",
+//     },
+//   ],
+// },
