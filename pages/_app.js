@@ -30,17 +30,30 @@ export default function App({ Component, pageProps }) {
   if (isLoading) return <div>Loading...</div>;
 
   function toggleFavPieces(pieceId) {
-    console.log("toggle");
-    if (favPieces.includes(pieceId)) {
-      const updateFavPieces = favPieces.filter(
-        (piece) => piece.slug !== pieceId
-      );
-      setFavPieces(updateFavPieces);
-    } else {
-      const updateFavPieces = [...favPieces, pieceId];
-      setFavPieces(updateFavPieces);
-    }
+    console.log("toggle favorite for:", pieceId);
+
+    setFavPieces((prevFavs) => {
+      const isFavorite = prevFavs.includes(pieceId);
+
+      if (isFavorite) {
+        console.log("Removing from favorites:", pieceId);
+        return prevFavs.filter((id) => id !== pieceId);
+      } else {
+        console.log("Adding to favorites:", pieceId);
+        return [...prevFavs, pieceId];
+      }
+    });
   }
+  //   if (favPieces.includes(pieceId)) {
+  //     const updateFavPieces = favPieces.filter(
+  //       (piece) => piece.slug !== pieceId
+  //     );
+  //     setFavPieces(updateFavPieces);
+  //   } else {
+  //     const updateFavPieces = [...favPieces, pieceId];
+  //     setFavPieces(updateFavPieces);
+  //   }
+  // }
 
   return (
     <>
@@ -51,6 +64,7 @@ export default function App({ Component, pageProps }) {
         isLoading={isLoading}
         data={data}
         toggleFavPieces={toggleFavPieces}
+        favPieces={favPieces}
       />
 
       <Navigation />

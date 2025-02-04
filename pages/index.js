@@ -7,20 +7,27 @@ function RandomPiece(array) {
   return randomElement;
 }
 
-export default function HomePage({ data, error, isLoading, toggleFavPieces }) {
+export default function HomePage({
+  data,
+  error,
+  isLoading,
+  toggleFavPieces,
+  favPieces,
+}) {
   if (error) return <div>Error</div>;
   if (isLoading) return <div>Loading...</div>;
 
   let displayedArt = RandomPiece(data);
-
   return (
     <>
       <h1> Art Gallery</h1>
       <Spotlight
         image={displayedArt.imageSource}
         artist={displayedArt.artist}
+        pieceId={displayedArt.slug}
+        isFavorite={favPieces.includes(displayedArt.slug)}
+        toggleFavPieces={toggleFavPieces}
       />
-      <FavBtn />
     </>
   );
 }
