@@ -2,7 +2,7 @@ import Link from "next/link";
 import ArtDetails from "@/components/ArtDetail";
 import { useRouter } from "next/router";
 
-export default function Details({ data, error, isLoading }) {
+export default function Details({ data, error, isLoading, toggleFavPieces }) {
   const router = useRouter();
 
   if (error) return <div>Error</div>;

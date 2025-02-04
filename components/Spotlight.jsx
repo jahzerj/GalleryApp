@@ -1,5 +1,6 @@
 import useSWR from "swr";
 import Image from "next/image";
+import Heart from "./Heart";
 
 export default function Spotlight({
   artist,

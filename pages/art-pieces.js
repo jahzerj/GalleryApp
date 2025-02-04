@@ -1,8 +1,10 @@
 import Preview from "@/components/Preview";
 import { nanoid } from "nanoid";
 import Link from "next/link";
+import Heart from "@/components/Heart";
+import { Fragment } from "react";
 
-export default function artPieces({ data, error, isLoading }) {
+export default function artPieces({ data, error, isLoading, toggleFavPieces }) {
   if (error) return <div>Error</div>;
   if (isLoading) return <div>Loading...</div>;
 
@@ -10,25 +12,26 @@ export default function artPieces({ data, error, isLoading }) {
     <>
       <h1>Art Gallery</h1>
       <div className="dropdown">
-        <label for="pieces">Available Art Pieces</label>
+        <label htmlFor="pieces">Available Art Pieces</label>
         <select id="pieces" name="pieces">
           <option>Select an Artpiece</option>
-          {data.map((piece, index) => (
-            <option key={index}>{piece.name}</option>
+          {data.map((piece) => (
+            <option key={piece.slug}>{piece.name}</option>
           ))}
         </select>
       </div>
-      <ul>
-        {data.map((piece) => (
-          <Link key={nanoid()} href={`/art-pieces/${piece.slug}`}>
+      {data.map((piece) => (
+        <Fragment key={piece.slug}>
+          <Link href={`/art-pieces/${piece.slug}`}>
             <Preview
               image={piece.imageSource}
               pieceName={piece.name}
               artist={piece.artist}
             />
           </Link>
-        ))}
-      </ul>
+          <Heart onClick={() => toggleFavPieces(piece.slug)} />
+        </Fragment>
+      ))}
     </>
   );
 }
