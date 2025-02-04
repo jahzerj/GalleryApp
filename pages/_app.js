@@ -46,8 +46,10 @@ export default function App({ Component, pageProps }) {
 
   function toggleFavPieces(pieceId) {
     console.log("toggle favorite for:", pieceId);
+
     setFavPieces((prevFavs) => {
       const isFavorite = prevFavs.includes(pieceId);
+
       if (isFavorite) {
         console.log("Removing from favorites:", pieceId);
         return prevFavs.filter((id) => id !== pieceId);
@@ -57,6 +59,16 @@ export default function App({ Component, pageProps }) {
       }
     });
   }
+  //   if (favPieces.includes(pieceId)) {
+  //     const updateFavPieces = favPieces.filter(
+  //       (piece) => piece.slug !== pieceId
+  //     );
+  //     setFavPieces(updateFavPieces);
+  //   } else {
+  //     const updateFavPieces = [...favPieces, pieceId];
+  //     setFavPieces(updateFavPieces);
+  //   }
+  // }
 
   return (
     <>

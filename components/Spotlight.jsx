@@ -1,14 +1,23 @@
-import useSWR from "swr";
 import Image from "next/image";
-import Heart from "./Heart";
+import FavBtn from "./FavBtn";
 
-export default function Spotlight({ toggleFavPieces, artist, image }) {
-  //   if (error) return <div>Error</div>;
-  //   if (isLoading) return <div>Loading...</div>;
+export default function Spotlight({
+  artist,
+  image,
+  toggleFavPieces,
+  pieceId,
+  isFavorite,
+}) {
+  console.log("wordswordwords", toggleFavPieces);
   return (
     <>
       <Image src={image} height={80} width={80} alt="Alt" />
       <p>Artist: {artist}</p>
+      <FavBtn
+        pieceId={pieceId}
+        toggleFavPieces={toggleFavPieces}
+        isFavorite={isFavorite}
+      />
     </>
   );
 }
