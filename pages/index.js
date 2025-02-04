@@ -1,3 +1,5 @@
+import FavBtn from "@/components/FavBtn";
+import Heart from "@/components/Heart";
 import Spotlight from "@/components/Spotlight";
 
 function RandomPiece(array) {
@@ -6,18 +8,26 @@ function RandomPiece(array) {
   return randomElement;
 }
 
-export default function HomePage({ data, error, isLoading }) {
+export default function HomePage({
+  data,
+  error,
+  isLoading,
+  toggleFavPieces,
+  favPieces,
+}) {
   if (error) return <div>Error</div>;
   if (isLoading) return <div>Loading...</div>;
 
   let displayedArt = RandomPiece(data);
-
   return (
     <>
       <h1> Art Gallery</h1>
       <Spotlight
         image={displayedArt.imageSource}
         artist={displayedArt.artist}
+        pieceId={displayedArt.slug}
+        isFavorite={favPieces.includes(displayedArt.slug)}
+        toggleFavPieces={toggleFavPieces}
       />
     </>
   );
