@@ -29,21 +29,6 @@ export default function App({ Component, pageProps }) {
   if (error) return <div>Error</div>;
   if (isLoading) return <div>Loading...</div>;
 
-  // function toggleFavPieces(pieceId) {
-  //   console.log("pieceId:", pieceId);
-  //   if (favPieces.includes(pieceId)) {
-  //     console.log("toggleFavPieces: included");
-  //     const updateFavPieces = favPieces.filter(
-  //       (piece) => piece.slug !== pieceId
-  //     );
-  //     setFavPieces(updateFavPieces);
-  //   } else {
-  //     console.log("toggleFavPieces: NOT included");
-  //     const updateFavPieces = [...favPieces, pieceId];
-  //     setFavPieces(updateFavPieces);
-  //   }
-  // }
-
   function toggleFavPieces(pieceId) {
     console.log("toggle favorite for:", pieceId);
 
@@ -59,16 +44,6 @@ export default function App({ Component, pageProps }) {
       }
     });
   }
-  //   if (favPieces.includes(pieceId)) {
-  //     const updateFavPieces = favPieces.filter(
-  //       (piece) => piece.slug !== pieceId
-  //     );
-  //     setFavPieces(updateFavPieces);
-  //   } else {
-  //     const updateFavPieces = [...favPieces, pieceId];
-  //     setFavPieces(updateFavPieces);
-  //   }
-  // }
 
   return (
     <>
