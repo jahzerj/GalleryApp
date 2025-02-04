@@ -11,6 +11,7 @@ export default function Details({ data, error, isLoading }) {
 
   const router = useRouter();
   const { slug } = router.query;
+  // dont know which property of router we will need (probably slug)
 
   // based on the SLUG we will name the page as well as map over the data object (i think)
   return (
