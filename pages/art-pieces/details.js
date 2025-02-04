@@ -1,6 +1,6 @@
 import Link from "next/link";
 import ArtDetails from "@/components/ArtDetail";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 // need to use slug and routing from NextJS hard coded 'details' page to test if component works
 
 export default function Details({ data, error, isLoading }) {
@@ -9,8 +9,8 @@ export default function Details({ data, error, isLoading }) {
   if (error) return <div>Error</div>;
   if (isLoading) return <div>Loading...</div>;
 
-  const router = useRouter();
-  const { slug } = router.query;
+  // const router = useRouter();
+  // const { slug } = router.query;
   // dont know which property of router we will need (probably slug)
 
   // based on the SLUG we will name the page as well as map over the data object (i think)
