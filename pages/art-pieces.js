@@ -1,11 +1,10 @@
-import Navigation from "@/components/Navigation";
 import Preview from "@/components/Preview";
 import { nanoid } from "nanoid";
+import Link from "next/link";
 
 export default function artPieces({ data, error, isLoading }) {
   if (error) return <div>Error</div>;
   if (isLoading) return <div>Loading...</div>;
-  console.log("Data1:", data);
 
   return (
     <>
@@ -21,14 +20,13 @@ export default function artPieces({ data, error, isLoading }) {
       </div>
       <ul>
         {data.map((piece) => (
-          <>
+          <Link key={nanoid()} href={`/art-pieces/${piece.slug}`}>
             <Preview
-              key={nanoid()}
               image={piece.imageSource}
               pieceName={piece.name}
               artist={piece.artist}
             />
-          </>
+          </Link>
         ))}
       </ul>
     </>

@@ -1,30 +1,27 @@
 import Link from "next/link";
 import ArtDetails from "@/components/ArtDetail";
-// import { useRouter } from "next/router";
-// need to use slug and routing from NextJS hard coded 'details' page to test if component works
+import { useRouter } from "next/router";
 
 export default function Details({ data, error, isLoading }) {
-  let piece = data[1];
-  //need to remove hard code ^HERE^
+  const router = useRouter();
+
   if (error) return <div>Error</div>;
   if (isLoading) return <div>Loading...</div>;
 
-  // const router = useRouter();
-  // const { slug } = router.query;
-  // dont know which property of router we will need (probably slug)
+  const { slug } = router.query;
 
-  // based on the SLUG we will name the page as well as map over the data object (i think)
+  const [currDetails] = data.filter((piece) => piece.slug === slug);
+
   return (
     <>
       <Link href="/art-pieces">BACK</Link>
       <br></br>
-      {/* added ^HERE^ because of formatting */}
       <ArtDetails
-        image={piece.imageSource}
-        pieceName={piece.name}
-        artist={piece.artist}
-        year={piece.year}
-        genre={piece.genre}
+        image={currDetails.imageSource}
+        currDetailsName={currDetails.name}
+        artist={currDetails.artist}
+        year={currDetails.year}
+        genre={currDetails.genre}
       />
     </>
   );
