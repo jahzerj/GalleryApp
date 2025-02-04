@@ -1,11 +1,17 @@
 import Preview from "@/components/Preview";
-import { nanoid } from "nanoid";
 import Link from "next/link";
 import Heart from "@/components/Heart";
 import { Fragment } from "react";
 
-export default function artPieces({ data, error, isLoading, toggleFavPieces }) {
+export default function artPieces({
+  data,
+  error,
+  isLoading,
+  toggleFavPieces,
+  favPieces,
+}) {
   if (error) return <div>Error</div>;
+
   if (isLoading) return <div>Loading...</div>;
 
   return (
@@ -29,7 +35,9 @@ export default function artPieces({ data, error, isLoading, toggleFavPieces }) {
               artist={piece.artist}
             />
           </Link>
-          <Heart onClick={() => toggleFavPieces(piece.slug)} />
+          <button onClick={() => toggleFavPieces(piece.slug)}>
+            <Heart fav={piece.slug} favPieces={favPieces} />
+          </button>
         </Fragment>
       ))}
     </>

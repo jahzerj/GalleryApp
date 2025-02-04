@@ -1,8 +1,15 @@
 import Link from "next/link";
 import ArtDetails from "@/components/ArtDetail";
 import { useRouter } from "next/router";
+import Heart from "@/components/Heart";
 
-export default function Details({ data, error, isLoading, toggleFavPieces }) {
+export default function Details({
+  data,
+  error,
+  isLoading,
+  toggleFavPieces,
+  favPieces,
+}) {
   const router = useRouter();
 
   if (error) return <div>Error</div>;
@@ -23,6 +30,9 @@ export default function Details({ data, error, isLoading, toggleFavPieces }) {
         year={currDetails.year}
         genre={currDetails.genre}
       />
+      <button onClick={() => toggleFavPieces(currDetails.slug)}>
+        <Heart fav={currDetails.slug} favPieces={favPieces} />
+      </button>
     </>
   );
 }

@@ -1,4 +1,5 @@
 import FavBtn from "@/components/FavBtn";
+import Heart from "@/components/Heart";
 import Spotlight from "@/components/Spotlight";
 
 function RandomPiece(array) {
@@ -19,8 +20,11 @@ export default function HomePage({ data, error, isLoading, toggleFavPieces }) {
       <Spotlight
         image={displayedArt.imageSource}
         artist={displayedArt.artist}
+        toggleFavPieces={toggleFavPieces}
       />
-      <FavBtn />
+      <button onClick={() => toggleFavPieces(displayedArt.slug)}>
+        <Heart />
+      </button>
     </>
   );
 }
