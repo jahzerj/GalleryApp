@@ -13,11 +13,6 @@ export default function Spotlight({
     <>
       <Image src={image} height={80} width={80} alt="Alt" />
       <p>Artist: {artist}</p>
-      <FavBtn
-        pieceId={pieceId}
-        toggleFavPieces={toggleFavPieces}
-        isFavorite={isFavorite}
-      />
     </>
   );
 }
