@@ -1,7 +1,32 @@
 import Preview from "@/components/Preview";
 import Link from "next/link";
 import Heart from "@/components/Heart";
-import { Fragment } from "react";
+import styled from "styled-components";
+
+const StyledPreviewsContainer = styled.div`
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px auto;
+  height: auto;
+  border-radius: 40px;
+  overflow: hidden;
+  position: relative;
+`;
+
+const StyledBtn = styled.button`
+  position: absolute;
+  background: transparent;
+  border: none;
+  right: 50px;
+  top: 40px;
+`;
+
+const StyledHeading = styled.h1`
+  text-align: center;
+  margin: 0 auto;
+`;
 
 export default function artPieces({
   data,
@@ -16,8 +41,8 @@ export default function artPieces({
 
   return (
     <>
-      <h1>Art Gallery</h1>
-      <div className="dropdown">
+      <StyledHeading>Art Gallery</StyledHeading>
+      {/* <div className="dropdown">
         <label htmlFor="pieces">Available Art Pieces</label>
         <select id="pieces" name="pieces">
           <option>Select an Artpiece</option>
@@ -25,9 +50,9 @@ export default function artPieces({
             <option key={piece.slug}>{piece.name}</option>
           ))}
         </select>
-      </div>
+      </div> */}
       {data.map((piece) => (
-        <Fragment key={piece.slug}>
+        <StyledPreviewsContainer key={piece.slug}>
           <Link href={`/art-pieces/${piece.slug}`}>
             <Preview
               image={piece.imageSource}
@@ -35,10 +60,10 @@ export default function artPieces({
               artist={piece.artist}
             />
           </Link>
-          <button onClick={() => toggleFavPieces(piece.slug)}>
+          <StyledBtn onClick={() => toggleFavPieces(piece.slug)}>
             <Heart fav={piece.slug} favPieces={favPieces} />
-          </button>
-        </Fragment>
+          </StyledBtn>
+        </StyledPreviewsContainer>
       ))}
     </>
   );
