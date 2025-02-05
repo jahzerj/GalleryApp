@@ -3,6 +3,8 @@ import Link from "next/link";
 import Heart from "@/components/Heart";
 import { Fragment } from "react";
 
+import "./styles/art-pieces.css";
+
 export default function artPieces({
   data,
   error,
@@ -16,7 +18,7 @@ export default function artPieces({
 
   return (
     <>
-      <h1>Art Gallery</h1>
+      <h1 clas>Art Gallery</h1>
       <div className="dropdown">
         <label htmlFor="pieces">Available Art Pieces</label>
         <select id="pieces" name="pieces">
