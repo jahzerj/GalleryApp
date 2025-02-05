@@ -3,7 +3,7 @@ import ArtDetails from "@/components/ArtDetail";
 import { useRouter } from "next/router";
 import Heart from "@/components/Heart";
 import styled from "styled-components";
-import styles from "@/styles";
+import CommentForm from "@/components/Comment";
 
 const StyledDetailsContainer = styled.div`
   padding: 20px;
@@ -56,6 +56,7 @@ export default function Details({
           <Heart fav={currDetails.slug} favPieces={favPieces} />
         </StyledBtn>
       </StyledDetailsContainer>
+      {/* <CommentForm /> */}
     </>
   );
 }
