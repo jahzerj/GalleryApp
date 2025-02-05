@@ -13,10 +13,11 @@ describe("Preview Component", () => {
     );
 
     const imageElement = screen.getByRole("img");
+    console.log("Image src:", imageElement.src); // Debugging output
     expect(imageElement).toBeInTheDocument();
 
     // checks if image path is inlcuded in image src
-    expect(imageElement.src).toContain(encodeURIComponent("/test-image.jpg"));
+    expect(imageElement.src).toMatch(/test-image.jpg$/);
 
     // checks alt text
     expect(imageElement).toHaveAttribute(

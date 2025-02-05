@@ -10,7 +10,7 @@ describe("Spotlight Component", () => {
     expect(imageElement).toBeInTheDocument();
 
     // checks if image path is inlcuded in image src
-    expect(imageElement.src).toContain(encodeURIComponent("/test-image.jpg"));
+    expect(imageElement.src).toContain("/test-image.jpg");
 
     // checks alt text
     expect(imageElement).toHaveAttribute("alt", "An art piece by Van Gogh");
