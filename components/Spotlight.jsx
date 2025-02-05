@@ -1,17 +1,14 @@
 import Image from "next/image";
-import FavBtn from "./FavBtn";
 
-export default function Spotlight({
-  artist,
-  image,
-  toggleFavPieces,
-  pieceId,
-  isFavorite,
-}) {
-  console.log("wordswordwords", toggleFavPieces);
+export default function Spotlight({ artist, image }) {
   return (
     <>
-      <Image src={image} height={80} width={80} alt="Alt" />
+      <Image
+        src={image}
+        height={80}
+        width={80}
+        alt={`An art piece by ${artist}`}
+      />
       <p>Artist: {artist}</p>
     </>
   );
