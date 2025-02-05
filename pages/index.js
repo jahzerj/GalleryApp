@@ -2,14 +2,35 @@ import FavBtn from "@/components/FavBtn";
 import Heart from "@/components/Heart";
 import Spotlight from "@/components/Spotlight";
 import { useEffect, useState } from "react";
+import styled from "styled-components";
+import styles from "@/styles";
 
-// function RandomPiece(array) {
-//   let randomIndex = Math.floor(Math.random() * array.length);
-//   let randomElement = array[randomIndex];
-//   return randomElement;
+const StyledSpotlightContainer = styled.div`
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px auto;
+  height: auto;
+  border-radius: 40px;
+  overflow: hidden;
+  position: relative;
+  background-color: transparent;
+`;
 
-//   setRandomPiece();
-// }
+const StyledSpolightBtn = styled.button`
+  background: transparent;
+  position: absolute;
+  border: none;
+  right: 50px;
+  top: 40px;
+  z-index: 100;
+`;
+
+const StyledHeading = styled.h1`
+  text-align: center;
+  margin: 0 auto;
+`;
 
 export default function HomePage({
   data,
@@ -33,17 +54,19 @@ export default function HomePage({
 
   return (
     <>
-      <h1> Art Gallery</h1>
-      <Spotlight
-        image={randomPiece.imageSource}
-        artist={randomPiece.artist}
-        pieceId={randomPiece.slug}
-        isFavorite={favPieces.includes(randomPiece.slug)}
-      />
+      <StyledHeading> Art Gallery</StyledHeading>
+      <StyledSpotlightContainer>
+        <Spotlight
+          image={randomPiece.imageSource}
+          artist={randomPiece.artist}
+          pieceId={randomPiece.slug}
+          isFavorite={favPieces.includes(randomPiece.slug)}
+        />
 
-      <button onClick={() => toggleFavPieces(randomPiece.slug)}>
-        <Heart fav={randomPiece.slug} favPieces={favPieces} />
-      </button>
+        <StyledSpolightBtn onClick={() => toggleFavPieces(randomPiece.slug)}>
+          <Heart fav={randomPiece.slug} favPieces={favPieces} />
+        </StyledSpolightBtn>
+      </StyledSpotlightContainer>
     </>
   );
 }
