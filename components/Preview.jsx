@@ -11,15 +11,13 @@ const StyledImg = styled.img`
 export default function Preview({ artist, pieceName, image }) {
   return (
     <>
-
       <StyledImg
         className="preview_img"
         src={image}
         layout="responsive"
         // width={400}
         // height={200}
-        alt="Alt"
-
+        alt={`An art piece by ${artist}`}
       />
       <p>Title: {pieceName}</p>
       <p>Artist: {artist}</p>

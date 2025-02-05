@@ -15,18 +15,12 @@ const StyledPieceContext = styled.div`
   padding: 0 12px;
 `;
 
-export default function ArtDetails({
-  image,
-  currDetailsName,
-  artist,
-  year,
-  genre,
-}) {
+export default function ArtDetails({ image, pieceName, artist, year, genre }) {
   return (
     <>
       <StyledImg src={image} height={80} width={80} alt="Alt" />
       <StyledPieceContext>
-        <p>Title: {currDetailsName}</p>
+        <p>Title: {pieceName}</p>
         <p>Artist: {artist}</p>
         <p>Year: {year}</p>
         <p>Genre: {genre}</p>
