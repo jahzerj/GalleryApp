@@ -11,6 +11,7 @@ const StyledImg = styled.img`
 export default function Preview({ artist, pieceName, image }) {
   return (
     <>
+
       <StyledImg
         className="preview_img"
         src={image}
@@ -18,6 +19,7 @@ export default function Preview({ artist, pieceName, image }) {
         // width={400}
         // height={200}
         alt="Alt"
+
       />
       <p>Title: {pieceName}</p>
       <p>Artist: {artist}</p>

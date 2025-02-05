@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 import FavBtn from "./FavBtn";
 import styles from "@/styles";
 import styled from "styled-components";
@@ -10,17 +11,13 @@ const StyledImg = styled.img`
   object-fit: cover;
 `;
 
-export default function Spotlight({
-  artist,
-  image,
-  toggleFavPieces,
-  pieceId,
-  isFavorite,
-}) {
-  console.log("wordswordwords", toggleFavPieces);
+
+export default function Spotlight({ artist, image }) {
   return (
     <>
-      <StyledImg src={image} height={80} width={80} alt="Alt" />
+
+      <StyledImg src={image} height={80} width={80} alt={`An art piece by ${artist}`} />
+
       <p>Artist: {artist}</p>
     </>
   );
